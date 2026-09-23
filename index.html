@@ -50,8 +50,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: calc(40px + env(safe-area-inset-top)) 20px calc(48px + env(safe-area-inset-bottom));
+      justify-content: safe center;
+      padding: calc(28px + env(safe-area-inset-top)) 18px calc(32px + env(safe-area-inset-bottom));
       background:
         radial-gradient(1200px 600px at 50% -10%, rgba(200,116,163,0.28), transparent 60%),
         radial-gradient(800px 500px at 100% 100%, rgba(240,207,160,0.10), transparent 60%),
@@ -82,8 +82,8 @@
     }
 
     h1 {
-      font-size: 30px;
-      line-height: 1.18;
+      font-size: clamp(26px, 8vw, 32px);
+      line-height: 1.16;
       font-weight: 800;
       letter-spacing: -0.5px;
       margin-bottom: 14px;
@@ -98,10 +98,10 @@
     }
 
     .subtitle {
-      font-size: 16px;
+      font-size: 15.5px;
       line-height: 1.55;
       color: var(--muted);
-      margin-bottom: 26px;
+      margin-bottom: 24px;
       animation: fadeUp 0.6s ease 0.1s both;
     }
 
@@ -215,7 +215,20 @@
     }
 
     @media (max-width: 360px) {
-      h1 { font-size: 26px; }
+      .badge { margin-bottom: 16px; }
+      .subtitle { margin-bottom: 20px; }
+      .benefits { margin-bottom: 22px; }
+      .field input { padding: 14px 15px; }
+      .btn { padding: 16px; font-size: 16px; }
+    }
+
+    /* Низкие экраны — плотнее, чтобы форма влезала без прокрутки */
+    @media (max-height: 720px) {
+      .badge { margin-bottom: 14px; }
+      .subtitle { margin-bottom: 18px; }
+      .benefits { margin-bottom: 18px; }
+      .benefits li { padding: 5px 0; }
+      form { gap: 12px; }
     }
   </style>
 </head>
@@ -233,10 +246,6 @@
       <li>
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="rgba(240,207,160,0.15)"/><path d="M7 12.5l3 3 7-7" stroke="#f0cfa0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         Pierwszy zabieg całkowicie bezpłatny
-      </li>
-      <li>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="rgba(240,207,160,0.15)"/><path d="M7 12.5l3 3 7-7" stroke="#f0cfa0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Doświadczeni specjaliści w centrum Krakowa
       </li>
     </ul>
 
