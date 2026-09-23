@@ -16,11 +16,11 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', 'FB_PIXEL_ID');
+    fbq('init', '2726809781039252');
     fbq('track', 'PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=FB_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
+    src="https://www.facebook.com/tr?id=2726809781039252&ev=PageView&noscript=1"/></noscript>
   <!-- End Meta Pixel Code -->
 
   <style>
@@ -315,6 +315,9 @@
       if (phone.replace(/\D/g, '').length < 7) { phoneInput.classList.add('error'); valid = false; }
       if (!valid) return;
 
+      // Событие Lead — сразу при нажатии кнопки (после валидации)
+      if (window.fbq) { fbq('track', 'Lead'); }
+
       submitBtn.disabled = true;
       submitBtn.textContent = 'Wysyłanie...';
 
@@ -322,7 +325,6 @@
       var url = 'https://api.telegram.org/bot' + BOT_TOKEN + '/sendMessage';
 
       function done() {
-        if (window.fbq) { fbq('track', 'Lead'); }
         document.getElementById('card').classList.add('hide');
         document.getElementById('success').classList.add('show');
         window.scrollTo(0, 0);
@@ -331,7 +333,11 @@
       fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ chat_id: CHAT_ID, text: message })
+        body: JSON.stringify({
+          chat_id: CHAT_ID,
+          text: message,
+          disable_web_page_preview: true
+        })
       }).then(done).catch(done);
     });
   </script>
