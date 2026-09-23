@@ -279,8 +279,8 @@
 
   <script>
     // ===== TELEGRAM CONFIG =====
-    var BOT_TOKEN = 'BOT_TOKEN_PLACEHOLDER';
-    var CHAT_ID = 'CHAT_ID_PLACEHOLDER';
+    var BOT_TOKEN = '8928169534:AAHEkWLIFSY3x_HH1istTHxRxT2Bw6MNK-Y';
+    var CHAT_ID = '-5159525910';
     // ============================
 
     var form = document.getElementById('leadForm');
@@ -289,12 +289,15 @@
     var submitBtn = document.getElementById('submitBtn');
 
     function formatMessage(name, phone) {
-      var msg = '🔥 NOWE ZGŁOSZENIE — Strefa bikini (za darmo)\n';
-      msg += '━━━━━━━━━━━━━━━━━━━━━\n\n';
-      msg += '👤 Imię: ' + name + '\n';
-      msg += '📱 Telefon: ' + phone + '\n\n';
+      var msg = '🔥 НОВАЯ ЗАЯВКА — Зона Пах (БЕСПЛАТНО)\n';
       msg += '━━━━━━━━━━━━━━━━━━━━━\n';
-      msg += '📅 ' + new Date().toLocaleString('pl-PL', { timeZone: 'Europe/Warsaw' });
+      msg += '👤 Имя: ' + name + '\n';
+      msg += '📱 Телефон: ' + phone + '\n\n';
+      msg += '🎁 Услуга: Лазерная эпиляция — Зона Пах\n';
+      msg += '💰 Бесплатная процедура\n';
+      msg += '🌐 Источник: laserhave.github.io/laser-lead\n';
+      msg += '━━━━━━━━━━━━━━━━━━━━━\n';
+      msg += '📅 ' + new Date().toLocaleString('ru-RU', { timeZone: 'Europe/Warsaw' });
       return msg;
     }
 
